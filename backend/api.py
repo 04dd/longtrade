@@ -7,7 +7,7 @@ import scipy.stats as stats
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from longport.openapi import QuoteContext, TradeContext, Config, SubType, PushQuote, PushDepth, OrderType, OrderSide, OrderStatus, StrikePriceInfo, TimeInForceType, Period, AdjustType, OpenApiException
+from longbridge.openapi import QuoteContext, TradeContext, Config, SubType, PushQuote, PushDepth, OrderType, OrderSide, OrderStatus, StrikePriceInfo, TimeInForceType, Period, AdjustType, OpenApiException
 
 print('\nStarting longtrade backend service...\n')
 
@@ -66,10 +66,9 @@ else:
 # fastapi
 # --------------------
 app = FastAPI()
-origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
