@@ -24,7 +24,7 @@ def is_trading():
 
 trading = is_trading()
 # --------------------
-# longport
+# longbridge api
 # --------------------
 with open(os.path.expanduser("~")+'/token.json') as f:
     token_str = f.read()
@@ -45,11 +45,6 @@ def fmt(tk):
 
 def rfmt(ticket):
     return ticket[:-3].lower()
-
-# def get_opt_type(symbol):
-#     for char in symbol[::-1]:
-#         if char == 'C': return 'Call'
-#         if char == 'P': return 'Put'
 
 last_quote = q.quote([fmt(tk) for tk in tks])
 if not trading:
